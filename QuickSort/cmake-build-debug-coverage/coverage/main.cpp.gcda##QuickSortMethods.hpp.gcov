@@ -1,0 +1,99 @@
+        -:    0:Source:C:/Users/dgarz/Documents/c++/AA/QuickSort/QuickSortMethods.hpp
+        -:    0:Graph:C:\Users\dgarz\Documents\c++\AA\QuickSort\cmake-build-debug-coverage\CMakeFiles\QuickSort.dir\main.cpp.gcno
+        -:    0:Data:C:\Users\dgarz\Documents\c++\AA\QuickSort\cmake-build-debug-coverage\CMakeFiles\QuickSort.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by dgarzona on 18/10/2023.
+        -:    3://
+        -:    4:
+        -:    5:#ifndef QUICKSORT_QUICKSORTMETHODS_HPP
+        -:    6:#define QUICKSORT_QUICKSORTMETHODS_HPP
+        -:    7:
+        -:    8:#include <iostream>
+        -:    9:
+        -:   10:template <typename T>
+        -:   11:class QuickSortMethods {
+        -:   12:    public:
+        -:   13:        static void sort(T *array, int size);
+        -:   14:    private:
+        -:   15:        static void sort(T *array, int low, int high);
+        -:   16:        static int partition(T *array, int low, int high);
+        -:   17:        static void swap(T *array, int i, int j);
+        -:   18:};
+        -:   19:
+        -:   20:template<typename T>
+function _ZN16QuickSortMethodsIcE4sortEPci called 1 returned 100% blocks executed 100%
+        1:   21:void QuickSortMethods<T>::sort(T *array, int size) {
+        1:   22:    sort(array, 0, size - 1);
+        1:   22-block  0
+call    0 returned 1
+        1:   23:}
+        -:   24:
+        -:   25:template <typename T>
+function _ZN16QuickSortMethodsIcE4sortEPcii called 9 returned 100% blocks executed 100%
+        9:   26:void QuickSortMethods<T>::sort(T *array, int low, int high) {
+        9:   27:    if (low < high) {
+        9:   27-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 5
+        4:   28:        int pivot = partition(array, low, high);
+        4:   28-block  0
+call    0 returned 4
+        4:   29:        sort(array, low, pivot - 1);
+call    0 returned 4
+        4:   30:        sort(array, pivot + 1, high);
+call    0 returned 4
+        -:   31:    }
+        9:   32:}
+        -:   33:/**
+        -:   34: * Este método se encarga de ordenar el array de acuerdo al pivote
+        -:   35: * que se le pase como parámetro.
+        -:   36: * @tparam T
+        -:   37: * @param array
+        -:   38: * @param low
+        -:   39: * @param high
+        -:   40: * @return la posición del pivote
+        -:   41: */
+        -:   42:template <typename T>
+function _ZN16QuickSortMethodsIcE9partitionEPcii called 4 returned 100% blocks executed 100%
+        4:   43:int QuickSortMethods<T>::partition(T *array, int low, int high) {
+        4:   44:    T pivot = array[high];
+        4:   45:    int i = low - 1;
+       13:   46:    for (int j = low; j < high; j++) {
+        4:   46-block  0
+        9:   46-block  1
+       13:   46-block  2
+branch  0 taken 9
+branch  1 taken 4 (fallthrough)
+        -:   47:        // this conditional indicates the order of the sorting
+        9:   48:        if (array[j] <= pivot) {
+        9:   48-block  0
+branch  0 taken 7 (fallthrough)
+branch  1 taken 2
+        7:   49:            i++;
+        7:   50:            swap(array, i, j);
+        7:   50-block  0
+call    0 returned 7
+        -:   51:        }
+        -:   52:    }
+        4:   53:    swap(array, i + 1, high);
+        4:   53-block  0
+call    0 returned 4
+        4:   54:    return i + 1;
+        -:   55:}
+        -:   56:/**
+        -:   57: * Este método se encarga de intercambiar los valores de las posiciones
+        -:   58: * i y j del array.
+        -:   59: * @tparam T
+        -:   60: * @param array
+        -:   61: * @param i
+        -:   62: * @param j
+        -:   63: */
+        -:   64:template <typename T>
+function _ZN16QuickSortMethodsIcE4swapEPcii called 11 returned 100% blocks executed 100%
+       11:   65:void QuickSortMethods<T>::swap(T *array, int i, int j) {
+       11:   66:    T temp = array[i];
+       11:   67:    array[i] = array[j];
+       11:   68:    array[j] = temp;
+       11:   69:}
+        -:   70:#endif //QUICKSORT_QUICKSORTMETHODS_HPP

@@ -1,0 +1,3 @@
+C:/Users/dgarz/Documents/c++/AA/Objects/cmake-build-debug/CMakeFiles/Objects.dir
+C:/Users/dgarz/Documents/c++/AA/Objects/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/dgarz/Documents/c++/AA/Objects/cmake-build-debug/CMakeFiles/rebuild_cache.dir
